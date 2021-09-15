@@ -2,7 +2,10 @@ import express from "express";
 import cors from 'cors';
 import { conectarDB } from "./database/config";
 import userRoutes from "./routes/usuario";
-require('dotenv').config();
+import dotenv from 'dotenv';
+import authRoutes from "./routes/auth";
+
+dotenv.config();
 
 //Crear servidor express
 const app = express();
@@ -18,6 +21,7 @@ conectarDB();
 
 //Rutas
 app.use('/api/usuarios',userRoutes);
+app.use('/api/login',authRoutes);
 
 //Obtiene puerto
 const puerto = process.env.PORT;
