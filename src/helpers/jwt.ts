@@ -11,7 +11,7 @@ export const generarJWT = (uid:string) => {
         }
 
         jwt.sign(payload, key, {
-            expiresIn: '12h'
+            expiresIn: '1y'
         }, (err, token) => {
             if(err){
                 //console.log(err);

@@ -6,12 +6,20 @@ import { generarJWT } from "../helpers/jwt";
 
 export const getUser = async (req:Request | any, res:Response) => {
 
-    const usuarios = await userModel.find({}, 'nombre email role');
+    const desde = Number(req.query.desde) || 0;
+
+    //Ejecuta los dos simultaneamente
+    const [usuarios, total] = await Promise.all([
+        userModel.find({}, 'nombre email role google')
+        .skip(desde)
+        .limit(5),
+        userModel.countDocuments()
+    ]);
 
     res.json({
         ok:true,
         usuarios,
-        uid: req.uid
+        total
     });
 
 }

@@ -1,4 +1,4 @@
-import { Router, Request, Response } from "express";
+import { Router } from "express";
 import { check } from 'express-validator';
 import * as Controller from "../controllers/usuario";
 import { validarCampos } from "../middlewares/validar-campos";
