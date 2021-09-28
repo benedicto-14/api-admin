@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { check } from 'express-validator';
-import { login } from "../controllers/auth";
+import { login, loginGoogle } from "../controllers/auth";
 import { validarCampos } from "../middlewares/validar-campos";
 
 /* 
@@ -16,6 +16,13 @@ authRoutes.post('/',
         validarCampos
     ], 
     login
+);
+authRoutes.post('/google',
+    [
+        check('token', 'El token de google es requerido').not().isEmpty(),
+        validarCampos
+    ], 
+    loginGoogle
 );
 
 export default authRoutes;

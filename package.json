@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon dist/index.js",
     "dev": "ts-node-dev src/index.ts",
-    "build": "tsc && nodemon dist/index.js"
+    "build": "tsc"
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +26,7 @@
     "express": "^4.17.1",
     "express-fileupload": "^1.2.1",
     "express-validator": "^6.12.1",
+    "google-auth-library": "^7.9.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.0.4",
     "uuid": "^8.3.2"

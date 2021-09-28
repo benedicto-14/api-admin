@@ -25,6 +25,9 @@ app.use(express.json());
 //conectar db
 conectarDB();
 
+//Archivo publico
+app.use(express.static(`${process.cwd()}/public`));
+
 //Rutas
 app.use('/api/usuarios',userRoutes);
 app.use('/api/login',authRoutes);
