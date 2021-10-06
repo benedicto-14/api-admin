@@ -21,7 +21,12 @@ medicoRoutes.post('/',
     Controller.createMedico
 );
 medicoRoutes.put('/:id',
-    [],
+    [
+        validarJWT,
+        check('nombre','el nombre es requerido').not().isEmpty(),
+        check('hospital','el hospital es requerido').isMongoId(),
+        validarCampos
+    ],
     Controller.updateMedico
 );
 medicoRoutes.delete('/:id',

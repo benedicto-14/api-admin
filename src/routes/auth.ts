@@ -1,7 +1,8 @@
 import { Router } from "express";
 import { check } from 'express-validator';
-import { login, loginGoogle } from "../controllers/auth";
+import { login, loginGoogle, refreshToken } from "../controllers/auth";
 import { validarCampos } from "../middlewares/validar-campos";
+import { validarJWT } from "../middlewares/validar-jwt";
 
 /* 
 EndPoint: /api/login
@@ -23,6 +24,10 @@ authRoutes.post('/google',
         validarCampos
     ], 
     loginGoogle
+);
+authRoutes.get('/refresh',
+    validarJWT,
+    refreshToken
 );
 
 export default authRoutes;

@@ -84,3 +84,17 @@ export const loginGoogle = async (req:Request, res:Response) => {
         error500(res);
     }
 }
+
+export const refreshToken = async (req:Request | any, res:Response) => {
+
+    const uid = req.uid;
+
+    const token = await generarJWT(uid);
+    
+
+    res.json({
+        ok:true,
+        token
+    })
+
+}

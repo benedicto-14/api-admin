@@ -1,5 +1,7 @@
 # NodeJs-TypeScript
 
+Api para relizar un crud de hospitales, medico y ususarios
+
 ## Build
 
 Ejecutar el siguiente comando `npm run build` compilar a js.

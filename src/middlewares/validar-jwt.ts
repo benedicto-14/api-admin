@@ -16,8 +16,8 @@ export const validarJWT = (req:Request | any, res:Response, next:NextFunction) =
     try {
     
         const key:any = process.env.SECRET_JWT;
-        const res:any = jwt.verify(token, key);
-        req.uid = res.uid;
+        const decode:any = jwt.verify(token, key);
+        req.uid = decode.uid;
         next();
 
     } catch (error) {

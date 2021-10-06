@@ -20,7 +20,11 @@ hospitalRoutes.post('/',
     Controller.createHospital
 );
 hospitalRoutes.put('/:id',
-    [],
+    [
+        validarJWT,
+        check('nombre','el nombre es requerido').not().isEmpty(),
+        validarCampos
+    ],
     Controller.updateHospital
 );
 hospitalRoutes.delete('/:id',
